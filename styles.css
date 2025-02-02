@@ -7,6 +7,11 @@ body {
     color: #333;
 }
 
+
+/* ------------------- */
+/* HERO SECTION */
+/* ------------------- */
+
 .hero {
     height: 100vh;
     display: flex;
@@ -28,19 +33,6 @@ body {
     z-index: 2;
 }
 
-.cta-button {
-    padding: 10px 20px;
-    background-color: #ff4d4d; /* Rouge */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #e63939; /* Couleur légèrement plus foncée */
-}
-
 .hero-content h1 {
     font-family: 'Kings', sans-serif;
     letter-spacing: 10px;
@@ -49,16 +41,10 @@ body {
     margin: 0;
 }
 
-.project-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: block;
-    margin: 20px 0;
-}
-.project-link:hover {
-    text-decoration: none;
-}
+
+/* ------------------- */
+/* GENERAL STYLES */
+/* ------------------- */
 
 .about, .experience, .projects, .contact {
     padding: 40px; /* Augmente le padding pour plus d'espace */
@@ -87,30 +73,45 @@ h2::after {
     margin: 10px 0; /* Espace autour de la ligne */
 }
 
-.experience ul {
-    list-style-type: none; /* Retire les puces de la liste */
-    padding: 0; /* Supprime le padding par défaut */
+a {
+    color: #4d88ff; /* Bleu */
+    text-decoration: none;
 }
 
-.experience li {
-    font-size: 1.2rem; /* Taille de la police des éléments de la liste */
-    color: #555; /* Couleur légèrement plus claire */
-    line-height: 1.6; /* Augmente l'espacement des lignes */
-    padding-left: 1.5em; /* Espace à gauche pour les emojis */
-    position: relative; /* Pour ajouter une icône avant le texte */
+a:hover {
+    text-decoration: underline;
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
 }
 
 
+/* ------------------- */
+/* PROJECTS SECTION */
+/* ------------------- */
 
-
-.about p {
-    font-size: 1.2rem; /* Ajuste la taille du texte */
-    color: #555; /* Couleur légèrement plus claire */
-    line-height: 1.5; /* Augmente l'espacement des lignes */
+.project-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: block;
+    margin: 20px 0;
+}
+.project-link:hover {
+    text-decoration: none;
 }
 
 .projects {
-    padding: 20px;
+    padding-bottom: 60px;
 }
 
 .project-list {
@@ -147,15 +148,73 @@ h2::after {
 }
 
 
-a {
-    color: #4d88ff; /* Bleu */
+/* ------------------- */
+/* EXPERIENCE SECTION */
+/* ------------------- */
+
+.experience ul {
+    list-style-type: none; /* Retire les puces de la liste */
+    padding: 0; /* Supprime le padding par défaut */
+}
+
+.experience li {
+    font-size: 1.2rem; /* Taille de la police des éléments de la liste */
+    color: #555; /* Couleur légèrement plus claire */
+    line-height: 1.6; /* Augmente l'espacement des lignes */
+    padding-left: 1.5em; /* Espace à gauche pour les emojis */
+    position: relative; /* Pour ajouter une icône avant le texte */
+}
+
+.exp-link {
+    color: #007bff;
     text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+    display: inline-block; /* Empêche la déformation du soulignement */
 }
 
-a:hover {
-    text-decoration: underline;
+.exp-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
 }
 
+.exp-link:hover {
+    text-decoration: none; /* Supprime le soulignement supplémentaire */
+}
+
+.exp-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Correction spécifique pour éviter un effet plus fin */
+.exp-link::after {
+    will-change: transform;
+}
+
+
+/* ------------------- */
+/* ABOUT SECTION */
+/* ------------------- */
+
+
+.about p {
+    font-size: 1.2rem; /* Ajuste la taille du texte */
+    color: #555; /* Couleur légèrement plus claire */
+    line-height: 1.5; /* Augmente l'espacement des lignes */
+}
+
+
+/* ------------------- */
+/* CONTACT SECTION */
+/* ------------------- */
 
 .contact h2 {
     color: #007bff;
@@ -203,12 +262,9 @@ a:hover {
 }
 
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
+/* ------------------- */
+/* SOCIAL LINKS */
+/* ------------------- */
 
 .social-links a {
     color: white;
@@ -220,49 +276,10 @@ footer {
     color: #ff4d4d; /* Couleur rouge au survol */
 }
 
-/* Ajout d'un effet parallax à chaque section */
-section {
-    position: relative;
-    overflow: hidden;
-}
 
-
-.exp-link {
-    color: #007bff;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease-in-out;
-    display: inline-block; /* Empêche la déformation du soulignement */
-}
-
-.exp-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    width: 100%;
-    height: 2px;
-    background-color: #007bff;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease-in-out;
-}
-
-.exp-link:hover {
-    text-decoration: none; /* Supprime le soulignement supplémentaire */
-}
-
-.exp-link:hover::after {
-    transform: scaleX(1);
-}
-
-/* Correction spécifique pour éviter un effet plus fin */
-.exp-link::after {
-    will-change: transform;
-}
-
-
-
+/* ------------------- */
+/* SCROLLBAR STYLES */
+/* ------------------- */
 
 /* Styles pour la barre de défilement */
 ::-webkit-scrollbar {
